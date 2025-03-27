@@ -94,3 +94,14 @@ Kita menggunakan RwLock<> karena memungkinkan banyak thread untuk membaca secara
 lazy_static digunakan untuk membuat variabel menjadi singleton, sehingga hanya ada satu instance dalam program. Di Rust, static variable dibuat immutable secara default untuk menjamin keamanan thread dalam pemrograman multi-threading. Berbeda dengan Java, yang memungkinkan perubahan nilai static variable melalui fungsi static, Rust menghindari ini untuk mencegah race condition dan memastikan safety dalam akses data bersama.
 
 #### Reflection Subscriber-2
+>Have you explored things outside of the steps in the tutorial, for example: src/lib.rs? If not, explain why you did not do so. If yes, explain things that you have learned from those other parts of code.
+
+Ya, saya telah mengeksplorasi lib.rs dan menemukan bahwa file ini berisi informasi penting yang dibutuhkan oleh komponen lain dalam aplikasi. Ini mencakup respons error, root URL, serta konfigurasi singleton untuk aplikasi.
+
+>Since you have completed the tutorial by now and have tried to test your notification system by spawning multiple instances of Receiver, explain how Observer pattern eases you to plug in more subscribers. How about spawning more than one instance of Main app, will it still be easy enough to add to the system?
+
+Dengan desain kode yang ada, Observer Pattern memudahkan penambahan subscriber baru karena mendukung prinsip open-close kita dapat menambahkan observer tanpa mengubah kode yang sudah ada. Jika ingin menambahkan lebih dari satu instance aplikasi utama, hal ini tetap bisa dilakukan dengan mendaftarkan subscriber ke aplikasi yang berbeda melalui API yang sesuai.
+
+>Have you tried to make your own Tests, or enhance documentation on your Postman collection? If you have tried those features, tell us whether it is useful for your work (it can be your tutorial work or your Group Project).
+
+Melakukan pengujian dan dokumentasi sangat bermanfaat. Unit test membantu memastikan program berjalan dengan benar, sedangkan Postman collection memudahkan dalam memvalidasi respons API menggunakan data nyata dari aplikasi.
